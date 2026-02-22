@@ -27,6 +27,12 @@ go.work.sum
 # env file
 .env
 
+# Air live-reload
+tmp/
+
 # Editor/IDE
 # .idea/
 # .vscode/
+
+# Cursor
+.cursor/plans

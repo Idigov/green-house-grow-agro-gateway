@@ -1,0 +1,6 @@
+
+[build]
+# Явно указываем пакет для сборки (не корень проекта)
+cmd = "go build -o ./tmp/main ./cmd/gateway"
+bin = "tmp/main"
+entrypoint = ["./tmp/main"]

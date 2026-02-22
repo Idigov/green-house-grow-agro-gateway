@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+while read -r local_ref local_sha remote_ref remote_sha; do
+  if [[ "$remote_ref" == "refs/heads/main" ]]; then
+    echo "Direct push to main is disabled. Create a branch and open a PR."
+    exit 1
+  fi
+done
+exit 0
