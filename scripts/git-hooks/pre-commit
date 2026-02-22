@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -e
+
+# Запрет коммита на main, кроме как с флагом ALLOW_MAIN_COMMIT=1
+branch=$(git rev-parse --abbrev-ref HEAD)
+if [[ "$branch" == "main" && "$ALLOW_MAIN_COMMIT" != "1" && "$ALLOW_MAIN_COMMIT" != "true" ]]; then
+  echo "Commits on main are disabled. Use a branch and PR."
+  echo "To allow once: ALLOW_MAIN_COMMIT=1 git commit ..."
+  exit 1
+fi
+
+echo "Running go fmt..."
+go fmt ./...
+echo "Running go vet..."
+go vet ./...
